@@ -1,3 +1,5 @@
+<a href="?act=add_file" class="btn btn-success btn-sm" role="button">Ajouter un document</a>
+
 <table class="table">
     <thead>
     <th>#</th>

@@ -53,7 +53,7 @@ include_once('db.php');
                     </button>
                     <span class="navbar-brand">Bonjour <?php echo $_SESSION['first_name'].' '.$_SESSION['last_name'];?></span>
                     <ul class="nav navbar-nav">
-                        <li><a href="?act=cats">Catégories</a></li>
+                        <li><a href="?act=list_cat">Catégories</a></li>
                     </ul>
                 </div>
                 <!-- Collection of nav links and other content for toggling -->
@@ -65,7 +65,7 @@ include_once('db.php');
             </nav>
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Liste des Catégories</h3>
                         </div>
@@ -88,6 +88,15 @@ include_once('db.php');
                         switch($_GET['act']){
                             case 'list_file':
                                 include_once('list_file.php');
+                            break;
+                            case 'add_file':
+                                include_once('add_file.php');
+                            break;
+                            case 'list_cat':
+                                include_once('list_cat.php');
+                            break;
+                            case 'add_cat':
+                                include_once('add_cat.php');
                             break;
                         }
                     }
