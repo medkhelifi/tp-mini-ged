@@ -72,7 +72,7 @@ include_once('db.php');
                         </div>
                         <ul class="list-group">
                             <?php
-                            $reponse = $bdd->query('SELECT * FROM tp_categorie');
+                            $reponse = $bdd->query('SELECT * FROM tp_categorie ORDER BY name ASC');
                             foreach($reponse as $item){
                                 $active = "";
                                 if(isset($_GET['cat_id']) && $_GET['cat_id']==$item['id']) $active = "active";
