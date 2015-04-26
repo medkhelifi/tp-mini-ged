@@ -13,7 +13,7 @@
         echo '<tr>';
         echo '<td>'.$item['id'].'</td>';
         echo '<td>'.$item['name'].'</td>';
-        echo '<td><a class="btn btn-danger" href="?act=delete_cat&id='.$item['id'].'"><i class="icon-trash icon-white"></i>X</a></td>';
+        echo '<td><a class="btn btn-danger" href="?action=delete_cat&id='.$item['id'].'"><i class="icon-trash icon-white"></i>X</a></td>';
         echo '</tr>';
     }
     ?>

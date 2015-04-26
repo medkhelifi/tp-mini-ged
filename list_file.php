@@ -10,7 +10,9 @@
     <?php
     if(isset($_GET['cat_id'])){
         $cat_id     = $_GET['cat_id'];
-        $reponse    = $bdd->query('SELECT * FROM tp_document WHERE cat_id = '.$cat_id.' ORDER BY name ASC');
+        $reponse    = $bdd->prepare('SELECT * FROM tp_document WHERE cat_id = :cat_id ORDER BY name ASC');
+        $reponse->execute(array('cat_id' => $cat_id));
+
         foreach($reponse as $item){
             echo '<tr>';
             echo '<td>'.$item['id'].'</td>';

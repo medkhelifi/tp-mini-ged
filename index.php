@@ -24,9 +24,10 @@ include_once('db.php');
 <body>
 <div class="container">
 <?php
+
     if(isset($_POST['email']) && isset($_POST['password'])){
-        $post_email   = $_POST['email'];
-        $post_password   = $_POST['password'];
+        $post_email     = $_POST['email'];
+        $post_password  = $_POST['password'];
 
         $monfichier = fopen('secret.txt', 'r');
         $first_name = trim(fgets($monfichier));
@@ -45,10 +46,13 @@ include_once('db.php');
         }
 
     }
-    if(isset($_POST['action'])){
-        include_once('actions.php');
-    }
+    /**
+     * Avant d'afficher notre application nous devons verifier que l'utilisateur est connecté
+     * Si ce n'est pas le cas on le rénvoie vers le formulaire d'authentification
+     */
     if(isset($_SESSION['email'])){
+        //Fichier des actions
+        include_once('actions.php');
     ?>
         <div class="bs-example">
             <nav role="navigation" class="navbar navbar-default">
