@@ -1,8 +1,8 @@
 <!-- panel preview -->
     <h4>Ajouter un fichier:</h4>
     <div class="panel panel-default">
-        <form name="add_file" action="" method="post">
-            <input type="hidden" name="action" id="action" value="add_cat">
+        <form name="add_file" action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action" id="action" value="add_file">
             <div class="panel-body form-horizontal payment-form">
                 <div class="form-group">
                     <label for="concept" class="col-sm-3 control-label">Nom du document</label>
@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="status" class="col-sm-3 control-label">Catégorie</label>
                     <div class="col-sm-9">
-                        <select class="form-control" id="status" name="status">
+                        <select class="form-control" id="cat_id" name="cat_id">
                             <?php
                             $reponse = $bdd->query('SELECT * FROM tp_categorie ORDER BY name ASC');
                             foreach($reponse as $item){

@@ -8,13 +8,21 @@ if(isset($_POST['action'])){
                 $reponse->execute(array('cat_name' => $cat_name));
             }
             break;
-        case "delete_cat":
-            if(isset($_GET['cat_id']) && $_GET['cat_id']!=""){
+        case "add_file":
+            if(isset($_POST['name']) && $_POST['name']!="" && isset($_POST['cat_id']) && $_POST['cat_id']!=""){
+                $name       = $_POST['name'];
                 $cat_id     = $_POST['cat_id'];
-                $reponse    = $bdd->prepare('DELETE FROM tp_categorie WHERE id = :cat_id');
-                $reponse->execute(array('cat_id' => $cat_id));
+                if(isset($_FILES['file_name'])){
+                    $info       = pathinfo($_FILES['file_name']['name']);
+                    $ext        = $info['extension']; // get the extension of the file
+                    $newname    = "newname.".$ext;
+                    echo $newname;
+
+                    $target     = 'uploads/'.$newname;
+                    move_uploaded_file( $_FILES['file_name']['tmp_name'], $target);
+                }
             }
-            break;
+        break;
     }
 }
 if(isset($_GET['action'])) {
