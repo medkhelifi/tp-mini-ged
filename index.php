@@ -2,6 +2,12 @@
 /**
  * tp mini GED
  * created by: Mohamed KHELIFI <mohamedchrif.khelifi@gmail.com>
+ * la Mini GED est un outil qui permets d'uploader des documents et les répértorier sous forme de catégories.
+ * Nous avons donc dans cet outils deux formulaires
+ *  1- Un formulaire pour créer les catégories
+ *  2- Un autre formulaire pour uploder les documents.
+ * l'accès à notre Outil necessite une authentification: le username et le password sont sauvegardé dans un document text, secret.txt
+ *
  */
 
 session_start();
@@ -38,6 +44,9 @@ include_once('db.php');
             echo '<div class="alert alert-danger" role="alert">Email ou Mot de passe erroné</div>';
         }
 
+    }
+    if(isset($_POST['action'])){
+        include_once('actions.php');
     }
     if(isset($_SESSION['email'])){
     ?>
