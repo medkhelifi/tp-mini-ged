@@ -51,9 +51,10 @@ INSERT INTO `tp_categorie` (`id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tp_document` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
+  `id`        int(11) NOT NULL AUTO_INCREMENT,
+  `cat_id`    int(11) NOT NULL,
+  `file_name` varchar(250) NOT NULL,
+  `name`      varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
 
   INDEX `fk_document_categorie_idx` (`cat_id` ASC),
@@ -65,6 +66,12 @@ CREATE TABLE IF NOT EXISTS `tp_document` (
 
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `tp_document`
+--
+
+INSERT INTO `tp_miniged`.`tp_document` (`id`, `cat_id`, `name`, `file_name`) VALUES (NULL, '3', 'TEST FILE', 'testfile.txt');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -53,8 +53,7 @@ include_once('db.php');
                     </button>
                     <span class="navbar-brand">Bonjour <?php echo $_SESSION['first_name'].' '.$_SESSION['last_name'];?></span>
                     <ul class="nav navbar-nav">
-                        <li><a href="?act=add_cat">Ajouter une catégorie</a></li>
-                        <li><a href="?act=add_file">Ajouter un fichier</a></li>
+                        <li><a href="?act=cats">Catégories</a></li>
                     </ul>
                 </div>
                 <!-- Collection of nav links and other content for toggling -->
@@ -78,14 +77,22 @@ include_once('db.php');
                                 if(isset($_GET['cat_id']) && $_GET['cat_id']==$item['id']) $active = "active";
                                 echo '<a href="?act=list_file&cat_id='.$item['id'].'" class="list-group-item '.$active.'">'.$item['name'].'</a>';
                             }
-
                             ?>
-
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="col-sm-8">.col-sm-4</div>
+                <div class="col-sm-8">
+                    <?php
+                    if(isset($_GET['act'])){
+                        switch($_GET['act']){
+                            case 'list_file':
+                                include_once('list_file.php');
+                            break;
+                        }
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     <?php
