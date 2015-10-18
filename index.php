@@ -124,7 +124,12 @@ include_once('db.php');
                             case 'add_cat':
                                 include_once('add_cat.php');
                             break;
+                            default:
+                                include_once('welcome.php');
+                            break;
                         }
+                    }else{
+                        include_once('welcome.php');
                     }
                     ?>
                 </div>
