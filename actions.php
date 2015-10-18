@@ -61,8 +61,14 @@ if(isset($_GET['action'])) {
         case "delete_cat":
             if (isset($_GET['id']) && $_GET['id'] != "") {
                 $cat_id = $_GET['id'];
-                $reponse = $bdd->prepare('DELETE FROM tp_categorie WHERE id = :cat_id');
-                $reponse->execute(array('cat_id' => $cat_id));
+                $reponse    = $bdd->prepare('DELETE FROM tp_categorie WHERE id = :cat_id');
+                $result     = $reponse->execute(array('cat_id' => $cat_id));
+                if($result){
+                    echo '<div class="alert alert-success" role="alert">La catégorie à été supprimé avec succès</div>';
+                }else{
+                    echo '<div class="alert alert-danger" role="alert">Erreur lors de la suppression da la catégorie!!!</div>';
+                }
+
             }
         break;
         case "delete_file":
