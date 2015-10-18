@@ -1,0 +1,4 @@
+<Files secret.txt>
+    Order Deny,Allow
+    Deny from all
+</Files>
