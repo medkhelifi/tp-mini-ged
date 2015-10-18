@@ -17,7 +17,7 @@
             echo '<tr>';
             echo '<td>'.$item['id'].'</td>';
             echo '<td><a download href="uploads/'.$item['file_name'].'">'.$item['name'].'</a></td>';
-            echo '<td><a class="btn btn-danger" href="?act=delete_file&id='.$item['id'].'"><i class="icon-trash icon-white"></i>X</a></td>';
+            echo '<td><a class="btn btn-danger" href="?action=delete_file&id='.$item['id'].'"><i class="icon-trash icon-white"></i>X</a></td>';
             echo '</tr>';
         }
     }

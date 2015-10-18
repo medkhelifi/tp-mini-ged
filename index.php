@@ -51,8 +51,6 @@ include_once('db.php');
      * Si ce n'est pas le cas on le rénvoie vers le formulaire d'authentification
      */
     if(isset($_SESSION['email'])){
-        //Fichier des actions
-        include_once('actions.php');
     ?>
         <div class="bs-example">
             <nav role="navigation" class="navbar navbar-default">
@@ -97,6 +95,9 @@ include_once('db.php');
                 <div class="col-sm-1"></div>
                 <div class="col-sm-8">
                     <?php
+                    //ie fichier des action, ce fichier va contenir tous les action de notre mini-get:
+                    // - ajout de catégories, suppression de catégorie, ajout de fichiers ...
+                    include_once('actions.php');
                     if(isset($_GET['act'])){
                         switch($_GET['act']){
                             case 'list_file':
