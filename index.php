@@ -2,11 +2,14 @@
 /**
  * tp mini GED
  * created by: Mohamed KHELIFI <mohamedchrif.khelifi@gmail.com>
- * la Mini GED est un outil qui permets d'uploader des documents et les répértorier sous forme de catégories.
+ *
+ * La Mini GED est un outil qui permets d'uploader des documents et les répértorier sous forme de catégories.
  * Nous avons donc dans cet outils deux formulaires
  *  1- Un formulaire pour créer les catégories
  *  2- Un autre formulaire pour uploder les documents.
- * l'accès à notre Outil necessite une authentification: le username et le password sont sauvegardé dans un document text, secret.txt
+ *
+ * L'accès à notre Outil necessite une authentification: le username et le password sont sauvegardé dans un document text, secret.txt
+ * Le fichier secret.txt on doit le sécurisé avec .htaccess pour qu'il ne soit pas accessible via l'application
  *
  */
 
@@ -24,7 +27,8 @@ include_once('db.php');
 <body>
 <div class="container">
 <?php
-
+    // Si l'utilisateur post le formulaire de connexion
+    // on verifie les crédential qu'il a saisi avec ceux qui sont sauvgardés dans le fichier secret.txt
     if(isset($_POST['email']) && isset($_POST['password'])){
         $post_email     = $_POST['email'];
         $post_password  = $_POST['password'];
@@ -44,8 +48,16 @@ include_once('db.php');
         }else{
             echo '<div class="alert alert-danger" role="alert">Email ou Mot de passe erroné</div>';
         }
-
     }
+
+    //lors d'une deconnexion on supprime la session courante puis on redirige le client vers l'accueil
+    if(isset($_GET['logout'])){
+        session_destroy();
+        $uri_parts      = explode('?', $_SERVER['REQUEST_URI'], 2); //obtenir l'url courant sans les paramètres de l'url qui viennent après '?'
+        $actual_link    = "http://$_SERVER[HTTP_HOST]$uri_parts[0]";
+        header('Location: '.$actual_link);
+    }
+
     /**
      * Avant d'afficher notre application nous devons verifier que l'utilisateur est connecté
      * Si ce n'est pas le cas on le rénvoie vers le formulaire d'authentification
