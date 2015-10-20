@@ -14,7 +14,8 @@
  */
 
 session_start();
-include_once('db.php');
+$env    = '';
+include_once('db'.$env.'.php');
 
 ?>
 <!DOCTYPE html>
