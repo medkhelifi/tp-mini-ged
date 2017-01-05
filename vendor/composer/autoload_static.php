@@ -7,6 +7,13 @@ namespace Composer\Autoload;
 class ComposerStaticInit0ad1558b8d16ac93d27b6ee6bbf2f024
 {
     public static $prefixesPsr0 = array (
+        't' => 
+        array (
+            'tp-mini-ged' => 
+            array (
+                0 => __DIR__ . '/../..' . '/',
+            ),
+        ),
         'S' => 
         array (
             'Symfony\\Component\\Yaml' => 
